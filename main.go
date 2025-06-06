@@ -12,7 +12,7 @@ func main() {
     apiKey := os.Getenv("OPENAI_API_KEY")
     url := "https://api.openai.com/v1/completions"
     payload := map[string]interface{}{
-        "model": "text-davinci-003",
+        "model": "gpt-4o-mini",
         "prompt": "AI says:",
         "max_tokens": 10,
     }

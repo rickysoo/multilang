@@ -18,7 +18,7 @@ This package contains example scripts in 7 programming languages that perform ba
 - `main.rs` - Rust (requires `ureq` and `serde`)
 - `main.go` - Go
 - `AI.java` - Java
-- `ai.cpp` - C++ (calls OpenAI via curl)
+- `ai.cpp` - C++ (uses libcurl and nlohmann/json)
 
 ## 🧪 Run Examples
 
@@ -26,10 +26,10 @@ Each file can be run individually after setting the `OPENAI_API_KEY` environment
 - Python: `pip install openai`
 - Node.js: `npm install openai`
 - Rust: add `ureq` and `serde` to `Cargo.toml`
-- Java: requires JDK 11+
-- C++: requires `curl` and `jq` installed
+- Java: requires JDK 11+ and Jackson (e.g. `jackson-databind`)
+- C++: requires `libcurl` and `nlohmann-json`
 
 ## ⚠️ Notes
-- All use OpenAI's `text-davinci-003` model.
+ - All use OpenAI's `gpt-4o-mini` model.
 - TypeScript needs to be compiled using `tsc`.
 - JavaScript and TypeScript require Node.js.
