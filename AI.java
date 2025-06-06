@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.*;
-import java.util.*;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class AI {
     public static void main(String[] args) throws Exception {
@@ -12,7 +13,7 @@ public class AI {
         conn.setRequestProperty("Content-Type", "application/json");
         conn.setDoOutput(true);
 
-        String data = "{\"model\":\"text-davinci-003\",\"prompt\":\"AI says:\",\"max_tokens\":10}";
+        String data = "{\"model\":\"gpt-4o-mini\",\"prompt\":\"AI says:\",\"max_tokens\":10}";
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = data.getBytes("utf-8");
             os.write(input, 0, input.length);
@@ -25,8 +26,9 @@ public class AI {
             response.append(responseLine.trim());
         }
         String output = response.toString();
-        int start = output.indexOf("text":"") + 7;
-        int end = output.indexOf(""", start);
-        System.out.println("Java: " + output.substring(start, end).trim());
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(output);
+        String text = root.path("choices").get(0).path("text").asText();
+        System.out.println("Java: " + text.trim());
     }
 }

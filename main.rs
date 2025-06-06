@@ -4,7 +4,7 @@ use ureq::json;
 fn main() {
     let api_key = env::var("OPENAI_API_KEY").expect("API key not set");
     let body = json!({
-        "model": "text-davinci-003",
+        "model": "gpt-4o-mini",
         "prompt": "AI says:",
         "max_tokens": 10
     });

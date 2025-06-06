@@ -7,7 +7,7 @@ const openai = new OpenAIApi(configuration);
 
 (async () => {
   const res = await openai.createCompletion({
-    model: "text-davinci-003",
+    model: "gpt-4o-mini",
     prompt: "AI says:",
     max_tokens: 10,
   });
