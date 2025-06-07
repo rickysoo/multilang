@@ -9,6 +9,11 @@ This package contains example scripts in 7 programming languages that perform ba
    ```bash
    export OPENAI_API_KEY="sk-..."
    ```
+4. Install all language dependencies with the provided script:
+   ```bash
+   sudo ./setup.sh
+   ```
+   This updates `apt` packages and installs Python, Node, Go, Rust, Java, and C++ requirements.
 
 ## 📂 Files
 
